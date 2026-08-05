@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://d3eo6he6r1tga"]
+
+[ext_resource type="Texture2D" uid="uid://ct6mhrwjjceu3" path="res://Sprites/WallBackroomsLevel0Shadow2.png" id="1_xj6sm"]
+[ext_resource type="Texture2D" uid="uid://dhaeuqtjrsho6" path="res://Sprites/WallBackroomsLevel0Shadow3.png" id="2_5v8ww"]
+[ext_resource type="Texture2D" uid="uid://bynahid6him2d" path="res://Sprites/WallBackroomsLevel0.png" id="3_tn8j1"]
+[ext_resource type="Texture2D" uid="uid://pvl08povxkg5" path="res://Sprites/WallBackroomsLevel0Shadow4.png" id="4_tqfuy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7v5y2"]
+size = Vector2(235, 255)
+
+[node name="WallWithHitbox" type="StaticBody2D" unique_id=1240566257]
+
+[node name="WallBackroomsLevel0Shadow" type="Sprite2D" parent="." unique_id=1363444804]
+position = Vector2(78.00003, -81.5)
+scale = Vector2(5, 5)
+texture = ExtResource("1_xj6sm")
+
+[node name="WallBackroomsLevel0Shadow3" type="Sprite2D" parent="." unique_id=1764422031]
+position = Vector2(78, 3.4999995)
+scale = Vector2(5, 5)
+texture = ExtResource("2_5v8ww")
+
+[node name="WallBackroomsLevel0Shadow4" type="Sprite2D" parent="." unique_id=1496465134]
+position = Vector2(78, 88.50006)
+scale = Vector2(5, 5)
+texture = ExtResource("2_5v8ww")
+
+[node name="WallBackroomsLevel0Shadow2" type="Sprite2D" parent="." unique_id=102118620]
+position = Vector2(-76.99994, -81.5)
+scale = Vector2(5, 5)
+texture = ExtResource("1_xj6sm")
+flip_h = true
+
+[node name="WallBackroomsLevel0Shadow8" type="Sprite2D" parent="." unique_id=1107909057]
+position = Vector2(-77, 3.4999995)
+scale = Vector2(5, 5)
+texture = ExtResource("2_5v8ww")
+flip_h = true
+
+[node name="WallBackroomsLevel0Shadow9" type="Sprite2D" parent="." unique_id=890457576]
+position = Vector2(-77, 88.50006)
+scale = Vector2(5, 5)
+texture = ExtResource("2_5v8ww")
+flip_h = true
+
+[node name="WallBackroomsLevel0Shadow5" type="Sprite2D" parent="." unique_id=1786677002]
+position = Vector2(3, 91.00006)
+scale = Vector2(5, 5)
+texture = ExtResource("3_tn8j1")
+
+[node name="WallBackroomsLevel0Shadow6" type="Sprite2D" parent="." unique_id=599865803]
+position = Vector2(3, 16)
+scale = Vector2(5, 5)
+texture = ExtResource("3_tn8j1")
+
+[node name="WallBackroomsLevel0Shadow10" type="Sprite2D" parent="." unique_id=1126036825]
+position = Vector2(3, -14)
+scale = Vector2(5, 5)
+texture = ExtResource("3_tn8j1")
+
+[node name="WallBackroomsLevel0Shadow7" type="Sprite2D" parent="." unique_id=1810738523]
+position = Vector2(1, -80.99997)
+scale = Vector2(5, 5)
+texture = ExtResource("4_tqfuy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649470627]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_7v5y2")

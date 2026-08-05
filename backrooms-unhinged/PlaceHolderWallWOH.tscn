@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ckguifx4hq2iu"]
+
+[ext_resource type="Texture2D" uid="uid://bynahid6him2d" path="res://Sprites/WallBackroomsLevel0.png" id="1_d33st"]
+[ext_resource type="Texture2D" uid="uid://pvl08povxkg5" path="res://Sprites/WallBackroomsLevel0Shadow4.png" id="2_us887"]
+
+[node name="PlaceHolderWallWoh" type="Node2D" unique_id=1330291502]
+
+[node name="WallBackroomsLevel0" type="Sprite2D" parent="." unique_id=104475558]
+position = Vector2(-0.7750244, 101.22507)
+scale = Vector2(4.85, 4.85)
+texture = ExtResource("1_d33st")
+
+[node name="WallBackroomsLevel1" type="Sprite2D" parent="." unique_id=782379416]
+position = Vector2(-0.7750244, 28.225006)
+scale = Vector2(4.85, 4.85)
+texture = ExtResource("1_d33st")
+
+[node name="WallBackroomsLevel2" type="Sprite2D" parent="." unique_id=1480871709]
+position = Vector2(-0.7750244, -44.774963)
+scale = Vector2(4.85, 4.85)
+texture = ExtResource("1_d33st")
+
+[node name="WallBackroomsLevel0Shadow4" type="Sprite2D" parent="." unique_id=1457233033]
+position = Vector2(-2.7750244, -73.774994)
+scale = Vector2(4.85, 4.85)
+texture = ExtResource("2_us887")

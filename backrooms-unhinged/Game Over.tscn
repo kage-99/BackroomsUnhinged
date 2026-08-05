@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://unko52kdkx4u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7v5y2"]
+font_size = 102
+
+[node name="GameOver" type="Control" unique_id=1571870213]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=813781181]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -27.0
+offset_right = 54.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1251188498]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041
+anchor_top = 0.042000003
+anchor_right = 0.95800006
+anchor_bottom = 0.92300004
+offset_left = 298.463
+offset_top = 90.381996
+offset_right = -282.20605
+offset_bottom = -411.867
+text = "Game Over"
+label_settings = SubResource("LabelSettings_7v5y2")

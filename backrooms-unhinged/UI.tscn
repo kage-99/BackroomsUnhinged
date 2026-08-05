@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c7f6c1t0dqysc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wusub"]
+bg_color = Color(0.13682574, 0.13682574, 0.13682568, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3bc3"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7v5y2"]
+font_size = 21
+
+[node name="Ui" type="Control" unique_id=1461762396]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1931990592]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 10.0
+offset_right = 461.0
+offset_bottom = 37.0
+theme_override_styles/background = SubResource("StyleBoxFlat_wusub")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b3bc3")
+value = 48.55
+show_percentage = false
+
+[node name="Label" type="Label" parent="HealthBar" unique_id=866874467]
+visible = false
+layout_mode = 0
+offset_left = 170.0
+offset_top = -2.0
+offset_right = 602.0
+offset_bottom = 28.0
+text = "Health"
+label_settings = SubResource("LabelSettings_7v5y2")

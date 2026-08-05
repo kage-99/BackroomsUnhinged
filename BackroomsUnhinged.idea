@@ -16,7 +16,7 @@ Inventory:
 		* Gloves
 	
 Game Mechaniks:
-	- WASD to move: Top-down
+	- WASD to move: Front-view
 	- Space to Jump
 	- Shift for sprinting with stamina
 	- Ctrl for crouching with seeability meter (How fast a entity can spot the player)
