@@ -1,0 +1,44 @@
+A game that is in Pixel Art style and 2D but cutscenes are in 3D high quality and it is a Backrooms Game with Levels and a Story
+
+Main Character:
+	- Name: Eugene
+	- Job:  Cave Diver
+
+Inventory:
+	- Main Inventory:
+		* 5 Useable Slots
+		* 15-25 Unusable Slots
+	- Armor:
+		* Head
+		* Chest
+		* Leggings
+		* Boots
+		* Gloves
+	
+Game Mechaniks:
+	- WASD to move: Top-down
+	- Space to Jump
+	- Shift for sprinting with stamina
+	- Ctrl for crouching with seeability meter (How fast a entity can spot the player)
+	- Sanity in multiple blocks and when on 0% goes crazy and dies (to fill "mendal water"-bottles)
+	- in cutscenes and in some chapters it is in FPS in 3D
+	- healthbar
+	- multiple levels
+	- respawn points with a save zone/area
+	- when dies:
+		* in a new "level" where to find the right door to go back when opening the wrong door -1 of the 3 tries and when on 0 tries and 
+		didn't right door opened complete game over or timeout is 0 seconds (default is around 2 minutes max)
+
+Items:
+	- mendal-water-bottles: refill 2 blocks of the sanity and 5% more health
+	- energy drink: disables stamina for a few seconds
+	- chocolate bar: refills 20-50% of health
+
+Enemys:
+	- new entitys every level/chapter
+
+Story:
+	- coming soon
+
+Other:
+	- None for now
