@@ -12,6 +12,10 @@ var attack_timeout = 2
 var canAttack = true
 var isSprintLock = false
 var creepynes = 0.5
+var inInsane = false
+var is_hurt = false
+var isunderminus3 = false
+var inInsaneOnce = false
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var stanima_bar: ProgressBar = $StanimaBar
 @onready var sanity_bar: ProgressBar = $SanityBar
@@ -28,6 +32,7 @@ func _ready() -> void:
 	stanima_bar.value = STAMINA
 	sanity_bar.value = SANITY
 	#crepyner = $"../crepyner"
+	$Insane.visible = false
 	
 func add_damage(amount: int) -> void:
 	HEALTH -= amount
@@ -54,11 +59,13 @@ func _physics_process(delta: float) -> void:
 	sanity_bar.value = SANITY
 	
 	SANITY -= creepynes*0.01
-	
+		
 	if SANITY <= 0:
 		# VFX
+		$"../CanvasLayer2/MeshInstance2D2".material.set_shader_parameter("aberration_x", $"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_x")-0.1)
+		$"../CanvasLayer2/MeshInstance2D2".material.set_shader_parameter("aberration_y", $"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_x")-0.1)
 		# Health Loos
-		HEALTH -= 0.75
+		HEALTH -= 0.35
 	
 	var spawn_points = get_tree().get_nodes_in_group("Crepyner")
 	# assume the first spawn node is closest
@@ -133,16 +140,18 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_attack") and canAttack:
 		canAttack = false
 		inHurtAnim = true
+		is_hurt = true
 		Animator.pause()
 		Animator.play("Attack")
 		await wait(1.2)
 		Animator.pause()
+		is_hurt = false
 		inHurtAnim = false
 		await wait(attack_timeout-1.2)
 		canAttack = true
 	
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction and is_alive:
+	if direction and is_alive and not is_hurt:
 		if direction > 0:
 			$"AnimatedSprite2D".scale = Vector2(1.563, 1.563)
 			$"AnimatedSprite2D".position = Vector2(13, -4)
@@ -166,6 +175,32 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	if inInsane:
+		#print($"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_x"))
+		if $"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_x") > -5 and not isunderminus3 and  $"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_y") > -5:
+			$"../CanvasLayer2/MeshInstance2D2".material.set_shader_parameter("aberration_x", $"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_x")-0.15)
+			$"../CanvasLayer2/MeshInstance2D2".material.set_shader_parameter("aberration_y", $"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_y")-0.15)
+		else:
+			isunderminus3 = true
+		if isunderminus3 and $"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_x") < 0 and $"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_y") < 0:
+			await wait(3)
+			$"../CanvasLayer2/MeshInstance2D2".material.set_shader_parameter("aberration_x", $"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_x")+0.15)
+			$"../CanvasLayer2/MeshInstance2D2".material.set_shader_parameter("aberration_y", $"../CanvasLayer2/MeshInstance2D2".material.get_shader_parameter("aberration_y")+0.15)
+		else:
+			isunderminus3 = false
+	
+func _process(delta: float) -> void:
+	if SANITY <= 10 and not inInsaneOnce:
+		inInsane = true
+		$Insane.visible = true
+		$Insane.play("default")
+		await wait(3.5/$Insane.speed_scale)
+		$Insane.visible = false
+		$Insane.pause()
+		inInsane = false
+		$"../CanvasLayer2/MeshInstance2D2".material.set_shader_parameter("aberration_x",0)
+		$"../CanvasLayer2/MeshInstance2D2".material.set_shader_parameter("aberration_y",0)
+		inInsaneOnce = true
 func die() -> void:
 	is_alive = false
 	set_physics_process(false) # Stoppt _physics_process sofort

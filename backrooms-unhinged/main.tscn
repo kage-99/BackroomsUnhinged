@@ -7,19 +7,27 @@
 [ext_resource type="PackedScene" uid="uid://bqirnnwe6wxui" path="res://WallWithoutHitbox.tscn" id="6_7mycd"]
 [ext_resource type="Shader" uid="uid://bhxpl655rkopk" path="res://screen_effect.gdshader" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ckguifx4hq2iu" path="res://PlaceHolderWallWOH.tscn" id="7_272bh"]
+[ext_resource type="Shader" uid="uid://dtepyvhjbagyp" path="res://ChromaticAlaboration.gdshader" id="8_5vw27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v5y2"]
-size = Vector2(562, 20)
+size = Vector2(914.2288, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afcq1"]
 size = Vector2(830, 20)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("7_5vw27")
+shader_parameter/aberration_x = -5.0
+shader_parameter/aberration_y = -5.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_7v5y2"]
 size = Vector2(1280, 720)
 center_offset = Vector3(640, 360, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+shader = ExtResource("8_5vw27")
+shader_parameter/aberration_x = 2.375000001109129e-07
+shader_parameter/aberration_y = 2.375000001109129e-07
 
 [node name="Main" type="Node2D" unique_id=144730907]
 
@@ -60,6 +68,7 @@ position = Vector2(663.185, 630)
 scale = Vector2(2.408, -3.066)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1089805920]
+position = Vector2(176.11444, 0)
 shape = SubResource("RectangleShape2D_7v5y2")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=411619203]
@@ -90,8 +99,19 @@ position = Vector2(652, 13820)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1873895133]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer" unique_id=1337860241]
+z_index = 4096
 material = SubResource("ShaderMaterial_7mycd")
 mesh = SubResource("QuadMesh_7v5y2")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1323416919]
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="CanvasLayer2" unique_id=432336348]
+z_index = 4096
+material = SubResource("ShaderMaterial_272bh")
+mesh = SubResource("QuadMesh_7v5y2")
+
+[node name="Crepyner1" type="Sprite2D" parent="." unique_id=2023506054 groups=["Crepyner"]]
+position = Vector2(576, 534)
 
 [connection signal="area_entered" from="DieArea" to="DieArea" method="_on_area_entered"]
 [connection signal="body_entered" from="DieArea" to="DieArea" method="_on_body_entered"]
