@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b8xc5to6txx85"]
+
+[ext_resource type="Script" uid="uid://xhrksltfjsid" path="res://3D/3d_player.gd" id="1_0m8fj"]
+[ext_resource type="Texture2D" uid="uid://hfpd3mbfc5cf" path="res://Cave Explorer (Animated Pixel Art)/Animation Sprite Sheets (PNG)/WalkingCaveExplorer-Sheet-00-00.png" id="2_xt2en"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7v5y2"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=624341706]
+script = ExtResource("1_0m8fj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=166491313]
+shape = SubResource("CapsuleShape3D_7v5y2")
+
+[node name="Head" type="Node3D" parent="." unique_id=1177939697]
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1192444386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77503467, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=1484504736]
+visible = false
+light_color = Color(1, 0.38333333, 0, 1)
+light_energy = 3.0
+spot_range = 4096.0
+
+[node name="Sprite3D" type="Sprite3D" parent="Head/Camera3D" unique_id=1891185466]
+transform = Transform3D(-0.24192187, 0, 0.9702957, 0, 1, 0, -0.9702957, 0, -0.24192187, 0.24, -0.045, -0.194)
+texture_filter = 0
+texture = ExtResource("2_xt2en")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D" unique_id=719564265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23610303, 0, -0.23639786)
+light_color = Color(1, 0.68235296, 0, 1)
+light_energy = 5.277
+omni_range = 10.492

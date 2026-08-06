@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b28s0f5ty8t5u" path="res://Cave Explorer (Animated Pixel Art)/Animation Sprite Sheets (PNG)/WalkingCaveExplorer-Sheet-06-00.png" id="12_cgsek"]
 [ext_resource type="Texture2D" uid="uid://dq85k6dsdhqxc" path="res://Cave Explorer (Animated Pixel Art)/Animation Sprite Sheets (PNG)/WalkingCaveExplorer-Sheet-07-00.png" id="13_0pi4m"]
 [ext_resource type="Texture2D" uid="uid://c6a0idu7jmchk" path="res://Cave Explorer (Animated Pixel Art)/Animation Sprite Sheets (PNG)/WalkingCaveExplorer-Sheet-08-00.png" id="14_sg6sq"]
-[ext_resource type="Script" uid="uid://b8cvu6mu3qdb7" path="res://camera_2d.gd" id="15_r3kul"]
+[ext_resource type="Script" uid="uid://b8cvu6mu3qdb7" path="res://2D/camera_2d.gd" id="15_r3kul"]
 [ext_resource type="Texture2D" uid="uid://6y7ejblks7t1" path="res://Sprites/image-removebg-preview.png" id="16_jatw7"]
 [ext_resource type="Texture2D" uid="uid://b5ael1dqxcxpl" path="res://Sprites/brain-removebg-preview.png" id="17_efikj"]
 [ext_resource type="Texture2D" uid="uid://7oynhru3kqr8" path="res://Sprites/image-removebg-preview (copy 1).png" id="18_itxgx"]
@@ -633,7 +633,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=2018757864]
+[node name="Player" type="CharacterBody2D" unique_id=2018757864 groups=["Player"]]
 script = ExtResource("1_tdg3f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1898025907]

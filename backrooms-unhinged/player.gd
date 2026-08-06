@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var SPEED = 300.0
 var HEALTH = 100
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -450.0
 @onready var Animator = $AnimatedSprite2D
 var is_alive = true
 var STAMINA = 100
@@ -21,10 +21,10 @@ var inInsaneOnce = false
 @onready var sanity_bar: ProgressBar = $SanityBar
 var crepyner: Sprite2D
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_K: # Drücke Taste 'K' zum Sterben
-			add_damage(5)
+#func _unhandled_input(event: InputEvent) -> void:
+#	if event is InputEventKey and event.pressed and not event.echo:
+#		if event.keycode == KEY_K: # Drücke Taste 'K' zum Sterben
+#			add_damage(5)
 
 func _ready() -> void:
 	Animator.play("Idel")
@@ -160,7 +160,7 @@ func _physics_process(delta: float) -> void:
 			$"AnimatedSprite2D".position = Vector2(-13, -4)
 		if not inHurtAnim:
 			Animator.pause()
-		if Input.is_action_pressed("ui_shift"):
+		if Input.is_action_pressed("ui_shift") and not isSprintLock:
 			if not inHurtAnim:
 				Animator.play("Walk", 2.0)
 		else:
@@ -212,4 +212,4 @@ func die() -> void:
 	
 	# Prüfen, ob der Node noch im Tree ist, bevor die Szene gewechselt wird
 	if is_inside_tree():
-		get_tree().change_scene_to_file("res://Game Over.tscn")
+		get_tree().change_scene_to_file("res://2D/Game Over.tscn")

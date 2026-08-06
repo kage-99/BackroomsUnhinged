@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://drlhwpaqsiyx2"]
 
 [ext_resource type="Texture2D" uid="uid://bynahid6him2d" path="res://Sprites/WallBackroomsLevel0.png" id="1_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://bgbmnjjwdxrix" path="res://Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bgbmnjjwdxrix" path="res://2D/Player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://c2fofwhiwwlka" path="res://die_area.gd" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://cf1lj6np6l3l" path="res://Sprites/GroundBackroomsLevel0.png" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bqirnnwe6wxui" path="res://WallWithoutHitbox.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bqirnnwe6wxui" path="res://2D/WallWithoutHitbox.tscn" id="6_7mycd"]
 [ext_resource type="Shader" uid="uid://bhxpl655rkopk" path="res://screen_effect.gdshader" id="7_5vw27"]
-[ext_resource type="PackedScene" uid="uid://ckguifx4hq2iu" path="res://PlaceHolderWallWOH.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://ckguifx4hq2iu" path="res://2D/PlaceHolderWallWOH.tscn" id="7_272bh"]
 [ext_resource type="Shader" uid="uid://dtepyvhjbagyp" path="res://ChromaticAlaboration.gdshader" id="8_5vw27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v5y2"]
@@ -109,9 +109,6 @@ mesh = SubResource("QuadMesh_7v5y2")
 z_index = 4096
 material = SubResource("ShaderMaterial_272bh")
 mesh = SubResource("QuadMesh_7v5y2")
-
-[node name="Crepyner1" type="Sprite2D" parent="." unique_id=2023506054 groups=["Crepyner"]]
-position = Vector2(576, 534)
 
 [connection signal="area_entered" from="DieArea" to="DieArea" method="_on_area_entered"]
 [connection signal="body_entered" from="DieArea" to="DieArea" method="_on_body_entered"]
