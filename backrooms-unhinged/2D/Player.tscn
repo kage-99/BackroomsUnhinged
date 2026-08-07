@@ -358,6 +358,9 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nva0h"]
 bg_color = Color(0, 0, 0, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipt7u"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3kul"]
 bg_color = Color(0.13682574, 0.13682574, 0.13682568, 1)
 
@@ -680,6 +683,24 @@ offset_top = -1853.5857
 offset_right = 3739.8765
 offset_bottom = 1788.6628
 theme_override_styles/panel = SubResource("StyleBoxFlat_nva0h")
+
+[node name="Panel3" type="Panel" parent="Camera2D" unique_id=815799938]
+visible = false
+z_index = 4096
+offset_left = -3425.3364
+offset_top = -1853.5857
+offset_right = 3739.8765
+offset_bottom = 1788.6628
+theme_override_styles/panel = SubResource("StyleBoxFlat_ipt7u")
+
+[node name="Panel4" type="Panel" parent="Camera2D" unique_id=1793634944]
+visible = false
+z_index = 4096
+offset_left = -3425.3364
+offset_top = -1853.5857
+offset_right = 3739.8765
+offset_bottom = 1788.6628
+theme_override_styles/panel = SubResource("StyleBoxFlat_ipt7u")
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=94409051]
 offset_left = -40.0

@@ -80,7 +80,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if distanceToNextCrepyner <= 300:
-		creepynes = 50
+		creepynes = int(nearest_spawn_point.name.split("(")[1].split(")")[0])
 	else:
 		creepynes = 0.5
 	

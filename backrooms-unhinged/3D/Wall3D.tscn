@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://5jdsx6r78k1q"]
+
+[ext_resource type="Texture2D" uid="uid://bynahid6him2d" path="res://Sprites/WallBackroomsLevel0.png" id="1_17pyd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_afcq1"]
+size = Vector3(1, 1.0084381, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7v5y2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gdlfm"]
+albedo_texture = ExtResource("1_17pyd")
+uv1_scale = Vector3(18.97, 5.895, 5.3)
+texture_filter = 0
+
+[node name="StaticBody3D2" type="StaticBody3D" unique_id=678968013]
+transform = Transform3D(5.1955843, 0, 0, 0, 5.8006277, 0, 0, 0, 0.261, 0, -0.001972556, -0.010340154)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=673990994]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999996, 0, 0.49028566, 0)
+shape = SubResource("BoxShape3D_afcq1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=266053966]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999996, 0, 0.4886881, 0)
+mesh = SubResource("BoxMesh_7v5y2")
+surface_material_override/0 = SubResource("StandardMaterial3D_gdlfm")

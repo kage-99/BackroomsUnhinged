@@ -11,11 +11,14 @@ func _physics_process(delta: float) -> void:
 		if isEntered:
 			isEntered = false
 			isClicked = true
+			$"../Player".is_hurt = true
 			await wait((255/(2*60)))
 			await wait(0.5)
 			$"../Player".position = new_pos
 			await wait(0.5)
 			isClicked = false
+			await wait(1)
+			$"../Player".is_hurt = false
 	if isClicked:
 		alpha += 2
 		var new_stylebox_normal = $"../Player/Camera2D/Panel2".get_theme_stylebox("panel").duplicate()

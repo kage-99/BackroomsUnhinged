@@ -1,6 +1,10 @@
 extends StaticBody2D
 
 @onready var tile_map: TileMap = $TileMap3
+@export var sprite_visible = true
+
+func _ready() -> void:
+	$TileMap3.visible = sprite_visible
 
 func change_layer_color(color: Color) -> void:
 	tile_map.set_layer_modulate(0, color)
@@ -16,13 +20,14 @@ func shift_layer_hue(amount: float = 0.1) -> void:
 	tile_map.set_layer_modulate(0, current_color)
 
 func on_break() -> void:
-	for i in range(5):
-		change_layer_color(Color.RED)
-		await wait(0.1)
-		change_layer_color(Color.GREEN)
-		await wait(0.1)
-		change_layer_color(Color.DODGER_BLUE)
-		await wait(0.1)
+	if sprite_visible:
+		for i in range(5):
+			change_layer_color(Color.RED)
+			await wait(0.1)
+			change_layer_color(Color.GREEN)
+			await wait(0.1)
+			change_layer_color(Color.DODGER_BLUE)
+			await wait(0.1)
 	$".".queue_free()
 
 func wait(seconds: float) -> void:

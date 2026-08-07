@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://dtepyvhjbagyp" path="res://ChromaticAlaboration.gdshader" id="4_k15ed"]
 [ext_resource type="Texture2D" uid="uid://s0c8k3hrudrm" path="res://Sprites/GroundCave.png" id="4_xj8hr"]
 [ext_resource type="Script" uid="uid://b77c5cj74jh4l" path="res://2D/disable_sanity.gd" id="5_k15ed"]
+[ext_resource type="Texture2D" uid="uid://dgjulknu1d6r8" path="res://Sprites/Tape.png" id="6_dsxxn"]
 [ext_resource type="PackedScene" uid="uid://b6e8guaurd1ap" path="res://2D/breakable_object.tscn" id="8_5r2mw"]
 [ext_resource type="Script" uid="uid://c2fofwhiwwlka" path="res://die_area.gd" id="9_nmxkt"]
 [ext_resource type="FontFile" uid="uid://c2vtta414y7lm" path="res://Fonts/slkscr.ttf" id="10_micpn"]
@@ -14,6 +15,9 @@
 [ext_resource type="Script" uid="uid://d2n8357ruo66l" path="res://2D/enterWithW.gd" id="12_nva0h"]
 [ext_resource type="Texture2D" uid="uid://bswl37tsmflue" path="res://Sprites/M.E.G. Lab.png" id="13_q2t2i"]
 [ext_resource type="Script" uid="uid://dhefv5oy0jpab" path="res://2D/area_2d_3.gd" id="14_lskem"]
+[ext_resource type="Texture2D" uid="uid://dspi5y1f0kyy4" path="res://Sprites/Labrotory Inside.png" id="15_2e741"]
+[ext_resource type="Texture2D" uid="uid://ddeafkywbxxs" path="res://Sprites/Labrotory Inside2.png" id="16_dsxxn"]
+[ext_resource type="Script" uid="uid://c8qioonilcurw" path="res://2D/area_2d_4.gd" id="18_8g1uo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ooq4x"]
 texture = ExtResource("1_uvqwq")
@@ -183,7 +187,7 @@ sources/0 = SubResource("TileSetAtlasSource_ooq4x")
 size = Vector2(20, 164)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v5y2"]
-size = Vector2(3952.2368, 20)
+size = Vector2(3764.5906, 20)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3re03"]
 shader = ExtResource("3_6ifnd")
@@ -200,7 +204,7 @@ shader_parameter/aberration_x = 2.375000001109129e-07
 shader_parameter/aberration_y = 2.375000001109129e-07
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_micpn"]
-size = Vector2(1826.3022, 20)
+size = Vector2(1545.8904, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tadmg"]
 size = Vector2(455, 68)
@@ -221,6 +225,18 @@ font_size = 24
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnwp1"]
 size = Vector2(325, 231)
+
+[sub_resource type="LabelSettings" id="LabelSettings_afcq1"]
+font = ExtResource("10_micpn")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8g1uo"]
+font = ExtResource("10_micpn")
+font_size = 49
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8dhc"]
+size = Vector2(554, 43)
 
 [node name="Before" type="Node2D" unique_id=696773209]
 
@@ -267,6 +283,29 @@ position = Vector2(7091, 311)
 scale = Vector2(8.96, 8.96)
 texture = ExtResource("13_q2t2i")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=849387858]
+offset_left = 9369.0
+offset_top = -77.00001
+offset_right = 9558.528
+offset_bottom = -5.0000076
+scale = Vector2(8.289, 9.497345)
+texture = ExtResource("16_dsxxn")
+stretch_mode = 1
+
+[node name="LabrotoryInside" type="Sprite2D" parent="." unique_id=262358225]
+position = Vector2(10456, 260)
+scale = Vector2(8.289024, 9.535386)
+texture = ExtResource("15_2e741")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=344051862]
+offset_left = 10895.0
+offset_top = -85.99999
+offset_right = 11194.795
+offset_bottom = -13.999992
+scale = Vector2(8.289, 9.593282)
+texture = ExtResource("16_dsxxn")
+stretch_mode = 1
+
 [node name="Player" parent="." unique_id=2018757864 instance=ExtResource("2_ooq4x")]
 position = Vector2(59, 496)
 scale = Vector2(2.75, 2.75)
@@ -279,7 +318,7 @@ scale = Vector2(2.995, 2.995)
 texture_filter = 1
 offset_left = -225.7095
 offset_top = -230.71786
-offset_right = 9028.23
+offset_right = 10268.817
 offset_bottom = 345.28214
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_xj8hr")
@@ -301,8 +340,12 @@ shape = SubResource("RectangleShape2D_uvqwq")
 position = Vector2(2779.6328, -89.14858)
 shape = SubResource("RectangleShape2D_uvqwq")
 
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=671949106]
+position = Vector2(3352.9216, -89.14858)
+shape = SubResource("RectangleShape2D_uvqwq")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2001308864]
-position = Vector2(1966.119, 0)
+position = Vector2(1872.2963, 0)
 shape = SubResource("RectangleShape2D_7v5y2")
 
 [node name="CrepynerPlaceholder" type="Node2D" parent="." unique_id=815700746 groups=["Crepyner"]]
@@ -336,7 +379,7 @@ scale = Vector2(8.655127, -2.3107252)
 script = ExtResource("9_nmxkt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DieArea" unique_id=1563260390]
-position = Vector2(498.15118, 0)
+position = Vector2(357.9453, 0)
 shape = SubResource("RectangleShape2D_micpn")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1991830378]
@@ -403,7 +446,7 @@ offset_top = 253.0
 offset_right = 3316.0
 offset_bottom = 406.0
 text = "I'd never seen this Pathway.
-Should I go inside?
+Should I go along?
 
 Press W to go along the pathway"
 label_settings = SubResource("LabelSettings_7v5y2")
@@ -422,7 +465,7 @@ offset_bottom = 395.0
 text = "A Lab?
 \"M.E.G\"
 What does it mean?
-I should go deeper in the Lab"
+I should go deeper"
 label_settings = SubResource("LabelSettings_q2t2i")
 
 [node name="Area2D3" type="Area2D" parent="." unique_id=1862872115]
@@ -438,8 +481,53 @@ shape = SubResource("RectangleShape2D_jnwp1")
 visible = false
 position = Vector2(10172, 480)
 
+[node name="Label6" type="Label" parent="." unique_id=1910480164]
+offset_left = 9757.0
+offset_top = 246.0
+offset_right = 10113.0
+offset_bottom = 315.0
+text = "Why is suddenly 
+everything so big"
+label_settings = SubResource("LabelSettings_afcq1")
+
+[node name="Label7" type="Label" parent="." unique_id=1374907690]
+offset_left = 10622.0
+offset_top = 367.0
+offset_right = 10978.0
+offset_bottom = 436.0
+text = "An old tape?
+I should move on."
+label_settings = SubResource("LabelSettings_afcq1")
+
+[node name="Label8" type="Label" parent="." unique_id=1619879654]
+visible = false
+offset_left = 11224.0
+offset_top = 595.0
+offset_right = 11697.0
+offset_bottom = 664.0
+text = "AAAAAAAAAAAH!!!"
+label_settings = SubResource("LabelSettings_8g1uo")
+
+[node name="BreakableObject3" parent="." unique_id=761474842 instance=ExtResource("8_5r2mw")]
+position = Vector2(10204, 5)
+sprite_visible = false
+
+[node name="Tape" type="Sprite2D" parent="BreakableObject3" unique_id=1565751744]
+position = Vector2(699, 478.00003)
+scale = Vector2(22.24607, 13.565)
+texture = ExtResource("6_dsxxn")
+
+[node name="Area2D4" type="Area2D" parent="." unique_id=424568140]
+position = Vector2(11406, 711)
+script = ExtResource("18_8g1uo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=256160596]
+position = Vector2(44, -11.5)
+shape = SubResource("RectangleShape2D_k8dhc")
+
 [connection signal="area_entered" from="DieArea" to="DieArea" method="_on_area_entered"]
 [connection signal="body_entered" from="DieArea" to="DieArea" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D4" to="Area2D4" method="_on_body_entered"]

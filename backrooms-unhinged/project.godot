@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Backrooms Unhinged"
-run/main_scene="uid://drlhwpaqsiyx2"
+run/main_scene="uid://bey27lscitnh7"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,6 +26,7 @@ window/stretch/aspect="expand"
 
 Crepyner=""
 Player=""
+Ground3D=""
 
 [input]
 
