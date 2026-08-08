@@ -27,6 +27,8 @@ window/stretch/aspect="expand"
 Crepyner=""
 Player=""
 Ground3D=""
+Entity=""
+Panel3DD=""
 
 [input]
 

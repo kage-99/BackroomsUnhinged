@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://f2u1o7hfa056" path="res://3D/procesgial_generator.gd" id="6_gb3co"]
 [ext_resource type="Script" uid="uid://hpixalqi5skf" path="res://3D/howler_ai.gd" id="7_1mxu5"]
 [ext_resource type="Texture2D" uid="uid://btdqeelmqwhns" path="res://Sprites/Howler.png" id="7_12vba"]
+[ext_resource type="ArrayMesh" uid="uid://rra28x646ud8" path="res://Models/wooden-door/source/doow_wood.obj" id="10_uxn0v"]
+[ext_resource type="Texture2D" uid="uid://cy1d5o7terdp5" path="res://Models/wooden-door/textures/Material.001_albedo.jpg" id="11_nip7v"]
+[ext_resource type="Texture2D" uid="uid://dmdyu4vdbwayr" path="res://Models/wooden-door/textures/DefaultMaterial_albedo.jpg" id="12_ifqo6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7v5y2"]
 font = ExtResource("6_12vba")
@@ -22,14 +25,6 @@ bg_color = Color(0, 0.7411765, 0.03137255, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nip7v"]
 font_size = 21
-
-[sub_resource type="Environment" id="Environment_7v5y2"]
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 16.0
-fog_light_energy = 1.16
-fog_density = 0.02
-fog_sky_affect = 0.289
-volumetric_fog_density = 0.0706
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gb3co"]
 shader = ExtResource("3_gdlfm")
@@ -45,11 +40,28 @@ shader = ExtResource("4_ueoa8")
 shader_parameter/aberration_x = 0.4
 shader_parameter/aberration_y = 0.4
 
+[sub_resource type="Environment" id="Environment_7v5y2"]
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+fog_light_energy = 1.16
+fog_density = 0.02
+fog_sky_affect = 0.289
+volumetric_fog_density = 0.0706
+
 [sub_resource type="NavigationMesh" id="NavigationMesh_w4qr7"]
 geometry_parsed_geometry_type = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_12vba"]
 size = Vector3(2.0121765, 3.5617676, 2.1168213)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_is7nx"]
+size = Vector3(1.5882568, 3.1140137, 0.3034668)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duwxt"]
+albedo_texture = ExtResource("11_nip7v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwbmj"]
+albedo_texture = ExtResource("12_ifqo6")
 
 [node name="3dMain" type="Node3D" unique_id=262595051]
 
@@ -140,6 +152,29 @@ position = Vector2(-0.537117, 3.6718674)
 scale = Vector2(0.025, 0.025)
 texture = ExtResource("2_is7nx")
 
+[node name="Control" type="Control" parent="." unique_id=1539059552]
+process_mode = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=198081756]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Control/CanvasLayer" unique_id=2136678874]
+z_index = 4096
+material = SubResource("ShaderMaterial_gb3co")
+mesh = SubResource("QuadMesh_12vba")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Control" unique_id=1550944738]
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Control/CanvasLayer2" unique_id=1712009842]
+z_index = 4096
+material = SubResource("ShaderMaterial_1mxu5")
+mesh = SubResource("QuadMesh_12vba")
+
 [node name="3dPlayer" parent="." unique_id=624341706 groups=["Player"] instance=ExtResource("1_j4rif")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2094958, 0)
 CROUCH_SPEED = 2.0
@@ -147,34 +182,24 @@ CROUCH_SPEED = 2.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=111315599]
 environment = SubResource("Environment_7v5y2")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=198081756]
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer" unique_id=2136678874]
-z_index = 4096
-material = SubResource("ShaderMaterial_gb3co")
-mesh = SubResource("QuadMesh_12vba")
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1550944738]
-
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="CanvasLayer2" unique_id=1712009842]
-z_index = 4096
-material = SubResource("ShaderMaterial_1mxu5")
-mesh = SubResource("QuadMesh_12vba")
-
-[node name="Procesgial Generator" type="Node3D" parent="." unique_id=569841763 node_paths=PackedStringArray("player_node")]
+[node name="Procesgial Generator" type="Node3D" parent="." unique_id=569841763 node_paths=PackedStringArray("player_node", "howler_node", "door_node")]
 script = ExtResource("6_gb3co")
 auto_generate_delay = 0.0
 ground_scene = ExtResource("2_ueoa8")
 player_node = NodePath("../3dPlayer")
+howler_node = NodePath("../Howler")
+door_node = NodePath("../Door")
 map_width = 32
 map_depth = 32
 wall_spacing = 5.19
 spawn_clear_radius = 0
+room_height = 5.8
+upper_room_tiles = 1
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Procesgial Generator" unique_id=1965128032]
 navigation_mesh = SubResource("NavigationMesh_w4qr7")
 
-[node name="Howler" type="CharacterBody3D" parent="." unique_id=558372159]
+[node name="Howler" type="CharacterBody3D" parent="." unique_id=558372159 groups=["Entity"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.848385, 0, 0)
 script = ExtResource("7_1mxu5")
 stop_distance = 3.065
@@ -199,3 +224,22 @@ texture = ExtResource("7_12vba")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Howler" unique_id=1084700030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015274048, 1.7889404, 0.06915283)
 shape = SubResource("BoxShape3D_12vba")
+
+[node name="Door" type="StaticBody3D" parent="." unique_id=1973793390]
+transform = Transform3D(1.405, 0, 0, 0, 1.405, 0, 0, 0, 1.405, 0, 0, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door" unique_id=1114867304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048430678, 1.5619441, -0.07434082)
+shape = SubResource("BoxShape3D_is7nx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door" unique_id=200888365]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.05228353, 0.010765848, 0)
+mesh = ExtResource("10_uxn0v")
+surface_material_override/0 = SubResource("StandardMaterial3D_duwxt")
+surface_material_override/1 = SubResource("StandardMaterial3D_lwbmj")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Door" unique_id=934064048]
+transform = Transform3D(0.7117438, 0, 0, 0, 0.7117438, 0, 0, 0, 0.7117438, 0.12057566, 0.5049372, 0)
+light_energy = 16.0
+omni_range = 4096.0

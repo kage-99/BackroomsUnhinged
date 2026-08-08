@@ -5,6 +5,12 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7v5y2"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7v5y2"]
+size = Vector3(1.4593506, 2.2852783, 1.2665405)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipt7u"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=624341706]
 script = ExtResource("1_0m8fj")
 
@@ -32,3 +38,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23610303, 0, -0.23639786)
 light_color = Color(1, 0.68235296, 0, 1)
 light_energy = 5.277
 omni_range = 10.492
+
+[node name="Area3D" type="Area3D" parent="." unique_id=814532697]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1167659121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005554199, 0.17144775, -0.000579834)
+shape = SubResource("BoxShape3D_7v5y2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=961581469]
+process_mode = 4
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=863152621]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=1861138641 groups=["Panel3DD"]]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -85.0
+offset_right = 73.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ipt7u")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
